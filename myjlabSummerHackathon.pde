@@ -25,8 +25,10 @@ void draw(){
   //プレイヤーの描画、動き
   player.display();
   player.move();
+  player.hitpoint();
   
   //衝突感知
   collisionDetect();
+  
   
 }

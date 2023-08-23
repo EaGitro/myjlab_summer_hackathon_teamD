@@ -1,12 +1,13 @@
-Player player = new Player(400,700,50);
+Player player = new Player(400,700,50,100);
 
 class Player{
-  float x, y, rad;
+  float x, y, rad, hp;
   
-  Player(float x,float y,float rad){
+  Player(float x,float y,float rad, float hp){
     this.x = x;
     this.y = y;
     this.rad = rad;
+    this.hp = hp;
   }
   
   void display(){
@@ -24,6 +25,20 @@ class Player{
   void surround(){
     if(x<20){x = 20;}
     if (x>680){x = 680;}
+  }
+  
+  //HPバーの表示
+  void hitpoint(){
+    if(hp >40){
+      fill(#00FF00);
+    }
+    if(hp > 15 && hp <= 40){
+      fill(#FFFF00);
+    }
+    if(hp<15){
+      fill(#FF0000);
+    }
+    rect(550,30,hp*2,50);
   }
   
 
