@@ -1,3 +1,4 @@
+
 boolean right, left;
 int time;
 PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
@@ -47,9 +48,9 @@ void setup(){
   droppingItems.add(new DroppingItem("salt", false, 0, 20, saltPic));
   
   //アイテムストックのインスタンス
-  waterStock = new ItemStock(droppingItems.get(4).name, droppingItems.get(4).water, droppingItems.get(4).salt,0,waterPic);
-  pocaliStock = new ItemStock(droppingItems.get(5).name, droppingItems.get(5).water, droppingItems.get(5).salt, 0,pocali);
-  saltStock = new ItemStock(droppingItems.get(6).name, droppingItems.get(6).water, droppingItems.get(6).salt,0,saltPic);
+  waterStock = new ItemStock(droppingItems.get(4).name, droppingItems.get(4).water, droppingItems.get(4).salt,0, waterPic);
+  pocaliStock = new ItemStock(droppingItems.get(5).name, droppingItems.get(5).water, droppingItems.get(5).salt, 0, pocali);
+  saltStock = new ItemStock(droppingItems.get(6).name, droppingItems.get(6).water, droppingItems.get(6).salt,0, saltPic);
   
   
   
@@ -79,9 +80,11 @@ void draw(){
   waterMeter.display();
   saltMeter.display();
   
+  //所持アイテムの表示
   waterStock.display();
   pocaliStock.display();
   saltStock.display();
   
   
 }
+
