@@ -3,13 +3,14 @@ class ItemStock{
 String  name;
 float water, salt;
 int quantity;
+PImage picPath;
 
-
- ItemStock(String name,float water,float salt,int quantity){
+ ItemStock(String name,float water,float salt,int quantity, PImage picPath){
     this.name = name;
     this.water = water;
     this.salt = salt;
     this.quantity = quantity;
+    this.picPath = picPath;
  }
  void increase(){
    this.quantity += 1;
@@ -21,7 +22,9 @@ int quantity;
    saltMeter.change(this.salt);
  }
 
- void display(){
-   text(name +":" + quantity,100,50);
+  void display(){
+   for(int i = 0; i < this.quantity; i ++){
+     image(this.picPath, 450+i*50 ,70,50,50);
+   }
  }
 }
