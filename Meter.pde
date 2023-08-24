@@ -13,10 +13,12 @@ class Meter {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.xHeight = xHeight;
-        this.colorCode = colorCode
-    }
-    
-    void change(float diff) {
+        this.colorCode = colorCode;
+        
+        this.display(val, xCoord, yCoord, xHeight, colorCode);
+        }
+        
+        voidchange(float diff) {
         this.val += diff;
         if (this.val > this.maxVal) {
             this.val = this.maxVal; 
