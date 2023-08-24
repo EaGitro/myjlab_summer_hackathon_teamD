@@ -3,17 +3,24 @@ class Player{
   float x, y, rad;
   PImage picture;
   
-  Player(float x,float y,float rad/*, PImage picture*/){
+  Player(float x,float y,float rad, PImage picture){
     this.x = x;
     this.y = y;
     this.rad = rad;
-    //this.picture = picture;
+    this.picture = picture;
   }
   
   void display(){
     surround();
+    // change player
+    if(isHalfMeter()){
+      this.picture = player2;
+    }else{
+      this.picture = player1;
+    }
     image(this.picture,x,y,80,100);
   }
+  
   
   void move(){
     if(right){x += 7.5;}
@@ -24,10 +31,22 @@ class Player{
     if(x<20){x = 20;}
     if (x>680){x = 680;}
   }
-  
-  
 
 }
+
+// whether either meter's value is half of itself
+boolean isHalfMeter(){
+   if(saltMeter.val < saltMeter.maxVal/2.0){
+     return true;  
+   }
+   if(waterMeter.val < waterMeter.maxVal/2.0){
+     return true;
+   }
+   return false;
+}
+
+
+
 
 //キーボードが押された時呼び出される:矢印キーそれぞれ押されていたらtrue
 void keyPressed(){
