@@ -5,8 +5,13 @@ void collisionDetect(){
     Math.pow(dropping.get(i).y - player.y,2) <= 
     Math.pow(dropping.get(i).rad*0.5 + player.rad*0.5,2)){
       
-      dropping.remove(i);
-      print("work");
+      if(dropping.get(i).isSokuji){
+        dropping.remove(i);
+      }else{
+        dropping.remove(i);
+      }
+      
+      //print("work");
     }
   }
 }

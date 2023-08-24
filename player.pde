@@ -1,3 +1,4 @@
+
 Player player = new Player(400,700,50);
 
 class Player{
@@ -25,6 +26,7 @@ class Player{
     if(x<20){x = 20;}
     if (x>680){x = 680;}
   }
+  
   
 
 }
