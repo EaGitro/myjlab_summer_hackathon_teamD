@@ -1,3 +1,4 @@
+
 boolean right, left;
 int time;
 PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
@@ -86,3 +87,4 @@ void draw(){
   
   
 }
+
