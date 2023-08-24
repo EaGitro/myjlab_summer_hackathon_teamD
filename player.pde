@@ -39,13 +39,13 @@ void keyPressed(){
     left=true;
   }
   //アイテムを使う時に呼び出される関数
-  if(keyCode==70){
+  if(keyCode==70 && waterStock.quantity >0){
     waterStock.discrease();
   }
-  if(keyCode==68){
+  if(keyCode==68 && pocaliStock.quantity >0){
     pocaliStock.discrease();
   }
-  if(keyCode==83){
+  if(keyCode==83 && saltStock.quantity >0){
     saltStock.discrease();
   }
 }
