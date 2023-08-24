@@ -22,7 +22,7 @@ class Dropping{
   }
   
   void display(){
-    image(this.picture, x, y, 50, 50);
+    image(this.picture, x, y, 70, 70);
   }
   
   void move(){
@@ -51,7 +51,7 @@ void geneDropping(){
     if(time%600 == 0){
       dropping.add(new Dropping(
       droppingItems.get(y).name, droppingItems.get(y).isSokuji, droppingItems.get(y).water,
-      droppingItems.get(y).salt,random(30,680),-15,random(2,7), droppingItems.get(x).picture
+      droppingItems.get(y).salt,random(30,680),-15,random(2,7), droppingItems.get(y).picture
       ));
     }
   }

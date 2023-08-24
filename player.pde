@@ -1,25 +1,23 @@
 
-Player player = new Player(400,700,50);
-
 class Player{
   float x, y, rad;
+  PImage picture;
   
-  Player(float x,float y,float rad){
+  Player(float x,float y,float rad, PImage picture){
     this.x = x;
     this.y = y;
     this.rad = rad;
+    this.picture = picture;
   }
   
   void display(){
     surround();
-    fill(#0040FF);
-    noStroke();
-    ellipse(x, y, rad, rad);
+    image(this.picture,x,y,80,100);
   }
   
   void move(){
-    if(right){x += 4.5;}
-    if(left){x -= 4.5;}
+    if(right){x += 7.5;}
+    if(left){x -= 7.5;}
   }
   
   void surround(){
@@ -33,11 +31,22 @@ class Player{
 
 //キーボードが押された時呼び出される:矢印キーそれぞれ押されていたらtrue
 void keyPressed(){
+  print(keyCode);
   if(keyCode==39){
     right=true;
   }
   if(keyCode==37){
     left=true;
+  }
+  //アイテムを使う時に呼び出される関数
+  if(keyCode==70){
+    waterStock.discrease();
+  }
+  if(keyCode==68){
+    pocaliStock.discrease();
+  }
+  if(keyCode==83){
+    saltStock.discrease();
   }
 }
 

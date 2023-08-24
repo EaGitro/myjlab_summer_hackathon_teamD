@@ -2,15 +2,21 @@ boolean right, left;
 int time;
 PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
 ItemStock waterStock, pocaliStock, saltStock;
+Player player;
+
+
+
 
 // メーターのインスタンス
-Meter saltMeter = new Meter(100);
-Meter waterMeter = new Meter(100);
+Meter saltMeter = new Meter(100, 100, 20, 50, "#00B5FA");
+Meter waterMeter = new Meter(100, 100, 20, 90, "#E2FAD9");
 
 void setup(){
   size(700,800);
   frameRate(200);
   print(frameRate);
+  
+  
   
   //背景画像
   beachImg = loadImage(sketchPath("image/beach.jpg"));
@@ -24,8 +30,13 @@ void setup(){
   pocali = loadImage(sketchPath("image/pocali.png"));
   saltPic = loadImage(sketchPath("image/salt.png"));
   
+  //プレーヤー
+  player1 = loadImage(sketchPath("image/player1.png"));
+  player2 = loadImage(sketchPath("image/player2.png"));
   
-
+  
+  //プレーヤーインスタンス
+  player = new Player(400, 700, 50, player1);
 
   droppingItems.add(new DroppingItem("sun1", true, -30, -20, sun1));
   droppingItems.add(new DroppingItem("sun2", true, -30, -20, sun2));
@@ -64,7 +75,8 @@ void draw(){
   //衝突感知
   collisionDetect();
   
+  //メーターの描画
+  waterMeter.display();
   saltMeter.display();
-  
   
 }
