@@ -3,11 +3,11 @@ class Player{
   float x, y, rad;
   PImage picture;
   
-  Player(float x,float y,float rad, PImage picture){
+  Player(float x,float y,float rad/*, PImage picture*/){
     this.x = x;
     this.y = y;
     this.rad = rad;
-    this.picture = picture;
+    //this.picture = picture;
   }
   
   void display(){
