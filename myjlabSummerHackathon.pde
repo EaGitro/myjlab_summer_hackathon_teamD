@@ -8,8 +8,8 @@ Player player;
 
 
 // メーターのインスタンス
-Meter saltMeter = new Meter(100, 100, 20, 50, "#00B5FA");
-Meter waterMeter = new Meter(100, 100, 20, 90, "#E2FAD9");
+Meter saltMeter = new Meter(100, 100, 20, 50, 30, #00B5FA);
+Meter waterMeter = new Meter(100, 100, 20, 90, 30, "#E2FAD9");
 
 void setup(){
   size(700,800);

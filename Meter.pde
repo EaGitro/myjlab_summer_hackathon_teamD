@@ -1,10 +1,9 @@
-
 class Meter {
     float val;
     float maxVal;
     float xCoord;
     float yCoord;
-    float xHeight
+    float xHeight;
     String colorCode;
     
     Meter(float initVal, float maxVal, float xCoord, float yCoord, float xHeight, String colorCode) {
@@ -25,7 +24,7 @@ class Meter {
             this.display(this.val, this.xCoord, this.yCoord, this.xHeight, this.colorCode);
         } else if (this.val <=  0) {
             this.val = 0;
-            this.display(val, xCoord, yCoord);
+            this.display(this.val, this.xCoord, this.yCoord, this.xHeight, this.colorCode);
             gameOver();
         }
         this.display(this.val, this.xCoord, this.yCoord, this.xHeight, this.colorCode);
