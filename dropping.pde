@@ -23,7 +23,6 @@ class Dropping{
   
   void display(){
     image(this.picture, x, y, 50, 50);
-    
   }
   
   void move(){

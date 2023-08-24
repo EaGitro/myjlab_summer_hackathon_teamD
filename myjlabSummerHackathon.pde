@@ -13,7 +13,7 @@ void setup(){
   print(frameRate);
   
   //背景画像
-  beachImg = loadImage("beach.jpg");
+  beachImg = loadImage(sketchPath("image/beach.jpg"));
   
   //落下物の画像
   sun1 = loadImage(sketchPath("image/sun1.png"));
