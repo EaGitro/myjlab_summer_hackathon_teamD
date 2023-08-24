@@ -1,25 +1,47 @@
 boolean right, left;
 int time;
-PImage beachImg;
+PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
+ItemStock waterStock, pocaliStock, saltStock;
+
+// メーターのインスタンス
+Meter saltMeter = new Meter(100);
+Meter waterMeter = new Meter(100);
 
 void setup(){
   size(700,800);
   frameRate(200);
   print(frameRate);
   
-  ItemStock items = new ItemStock("pocali",70,50,0);
-  ItemStock items = new ItemStock("water",100,0,0);
-  ItemStock items = new ItemStock("salt",0,100,0);
-  
-  droppingItems.add(new DroppingItem("running", true, 10, 10));
-  droppingItems.add(new DroppingItem("chiliPeper", true, 20, 0));
-  droppingItems.add(new DroppingItem("meteor", true, 30, 20));
-  droppingItems.add(new DroppingItem("bed", true, -40, -40));
-  droppingItems.add(new DroppingItem("water",false, -20, 0));
-  droppingItems.add(new DroppingItem("pocali", false, -10, -10));
-  droppingItems.add(new DroppingItem("salt", false, 0, -20));
-  
+  //背景画像
   beachImg = loadImage("beach.jpg");
+  
+  //落下物の画像
+  sun1 = loadImage(sketchPath("image/sun1.png"));
+  sun2 = loadImage(sketchPath("image/sun2.png"));
+  chiliPepper = loadImage(sketchPath("image/chiliPepper.png"));
+  bed = loadImage(sketchPath("image/bed.png"));
+  waterPic = loadImage(sketchPath("image/water.png"));
+  pocali = loadImage(sketchPath("image/pocali.png"));
+  saltPic = loadImage(sketchPath("image/salt.png"));
+  
+  
+
+
+  droppingItems.add(new DroppingItem("sun1", true, -30, -20, sun1));
+  droppingItems.add(new DroppingItem("sun2", true, -30, -20, sun2));
+  droppingItems.add(new DroppingItem("chiliPeper", true, -20, 0, chiliPepper));
+  droppingItems.add(new DroppingItem("bed", true, 40, 40, bed));
+  droppingItems.add(new DroppingItem("water",false, 20, 0, waterPic));
+  droppingItems.add(new DroppingItem("pocali", false, 10, 10, pocali));
+  droppingItems.add(new DroppingItem("salt", false, 0, 20, saltPic));
+  
+  //アイテムストックのインスタンス
+  waterStock = new ItemStock(droppingItems.get(4).name, droppingItems.get(4).water, droppingItems.get(4).salt,0);
+  pocaliStock = new ItemStock(droppingItems.get(5).name, droppingItems.get(5).water, droppingItems.get(5).salt, 0);
+  saltStock = new ItemStock(droppingItems.get(6).name, droppingItems.get(6).water, droppingItems.get(6).salt,0);
+  
+  
+  
   
 }
 
@@ -41,6 +63,8 @@ void draw(){
   
   //衝突感知
   collisionDetect();
+  
+  saltMeter.display();
   
   
 }

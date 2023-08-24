@@ -17,8 +17,8 @@ int quantity;
 
  void discrease(){
    this.quantity += -1;
-   waterMeter.change(this.waterMeter);
-   saltMeter.change(this.saltMeter);
+   waterMeter.change(this.water);
+   saltMeter.change(this.salt);
  }
 
  void display(){
