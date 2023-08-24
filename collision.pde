@@ -25,10 +25,16 @@ void collisionDetect(){
 
 void restore(int i){
   if(dropping.get(i).name == "pocali"){
-    pocaliStock.increase();
+    if(stockingList.pushItem("pocali")){
+      pocaliStock.increase();
+    }
   }else if(dropping.get(i).name == "water"){
-    waterStock.increase();
+    if(stockingList.pushItem("water")){
+      waterStock.increase();
+    }
   }else if(dropping.get(i).name == "salt"){
-    saltStock.increase();
+    if(stockingList.pushItem("salt")){
+      saltStock.increase();
+    }
   }
 }
