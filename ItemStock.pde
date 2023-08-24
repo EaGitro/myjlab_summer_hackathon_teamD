@@ -1,6 +1,6 @@
- ItemStock items = new ItemStock("pocali",70,50,0);
- ItemStock items = new ItemStock("water",100,0,0);
- ItemStock items = new ItemStock("salt",0,100,0);
+ //ItemStock items = new ItemStock("pocali",70,50,0);
+ //ItemStock items = new ItemStock("water",100,0,0);
+ //ItemStock items = new ItemStock("salt",0,100,0);
 
 class ItemStock{
 String  name;
