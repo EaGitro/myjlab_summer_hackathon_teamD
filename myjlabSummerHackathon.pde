@@ -81,10 +81,11 @@ void draw(){
   saltMeter.display();
   
   //所持アイテムの表示
-  waterStock.display();
-  pocaliStock.display();
-  saltStock.display();
+  //waterStock.display();
+  //pocaliStock.display();
+  //saltStock.display();
   
+  
+  stockingList.displayStockingItems();
   
 }
-
