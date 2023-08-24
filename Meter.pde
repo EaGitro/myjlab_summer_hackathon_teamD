@@ -15,18 +15,20 @@ class Meter {
         this.xHeight = xHeight;
         this.colorCode = colorCode;
         
-        this.display(val, xCoord, yCoord, xHeight, colorCode);
-        }
-        
-        voidchange(float diff) {
+        this.display(this.val, this.xCoord, this.yCoord, this.xHeight, this.colorCode);
+    }
+    
+    void change(float diff) {
         this.val += diff;
         if (this.val > this.maxVal) {
             this.val = this.maxVal; 
+            this.display(this.val, this.xCoord, this.yCoord, this.xHeight, this.colorCode);
         } else if (this.val <=  0) {
             this.val = 0;
             this.display(val, xCoord, yCoord);
             gameOver();
         }
+        this.display(this.val, this.xCoord, this.yCoord, this.xHeight, this.colorCode);
     }
     float returnVal() {
         return this.val;
