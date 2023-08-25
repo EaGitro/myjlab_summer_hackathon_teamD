@@ -1,11 +1,12 @@
 
 boolean right, left;
 int time;
+float v;
 PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
 ItemStock waterStock, pocaliStock, saltStock;
 Player player;
 
-final float WATER_AMOUNT_DECREASE = -0.08; // waterMeter.change() in myjlabSummerHackathon.pde
+final float WATER_AMOUNT_DECREASE = -0.04; // waterMeter.change() in myjlabSummerHackathon.pde
 final float SALT_AMOUNT_DECREASE = -0.1;  // saltMeter.change() in player.pde, keyPressed() 
 
 final float PLAYER_MOVEMENT_AMOUNT_FAST = 7.5; // player.move() in player.pde 
