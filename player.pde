@@ -23,8 +23,14 @@ class Player{
   
   
   void move(){
-    if(right){x += 7.5;}
-    if(left){x -= 7.5;}
+    float val = 0;
+    if(isHalfMeter()){
+      val = PLAYER_MOVEMENT_AMOUNT_SLOW;
+    }else{
+      val = PLAYER_MOVEMENT_AMOUNT_FAST;
+    }
+    if(right){x += val;}
+    if(left){x -= val;}
   }
   
   void surround(){
@@ -51,7 +57,7 @@ boolean isHalfMeter(){
 //キーボードが押された時呼び出される:矢印キーそれぞれ押されていたらtrue
 void keyPressed(){
   print(keyCode);
-  saltMeter.change(-0.3);
+  saltMeter.change(SALT_AMOUNT_DECREASE);
   if(keyCode==39){
     right=true;
   }
