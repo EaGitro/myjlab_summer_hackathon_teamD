@@ -132,5 +132,6 @@ void gameScreen(){
   stockingList.displayStockingItems();
   
   textSize(50);
-  text(String.valueOf((int)time/10), 730,50);
+  text("SCORE:" + String.valueOf((int)time/10), 500,50);
+  //text(String.format("%.1f",time/10),500, 50);
 }
