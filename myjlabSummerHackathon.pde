@@ -1,3 +1,9 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
 
 boolean right, left, waiting, dead;
 int time;
@@ -5,6 +11,9 @@ float v;
 PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
 ItemStock waterStock, pocaliStock, saltStock;
 Player player;
+
+Minim minim;
+ddf.minim.AudioPlayer soundPlayer;
 
 final float WATER_AMOUNT_DECREASE = -0.04; // waterMeter.change() in myjlabSummerHackathon.pde
 final float SALT_AMOUNT_DECREASE = -0.1;  // saltMeter.change() in player.pde, keyPressed() 
@@ -24,10 +33,16 @@ Meter waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
 void setup(){
   size(800,850);
   frameRate(200);
+  PFont font = createFont("Meiryo", 50);
+  textFont(font);
   print(frameRate);
   
   dead = false;
   waiting = true;
+  
+  minim = new Minim(this);
+  //player = minim.loadFile("./sound/punch.mp3");
+
   
   
   
