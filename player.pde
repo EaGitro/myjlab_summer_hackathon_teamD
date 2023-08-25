@@ -18,7 +18,7 @@ class Player{
     }else{
       this.picture = player1;
     }
-    image(this.picture,x,y,100,120);
+    image(this.picture,x,y,120,140);
   }
   
   
@@ -51,7 +51,7 @@ boolean isHalfMeter(){
 //キーボードが押された時呼び出される:矢印キーそれぞれ押されていたらtrue
 void keyPressed(){
   print(keyCode);
-  waterMeter.change(-0.3);
+  saltMeter.change(-0.3);
   if(keyCode==39){
     right=true;
   }
