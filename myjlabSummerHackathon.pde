@@ -9,8 +9,8 @@ Player player;
 
 
 // メーターのインスタンス
-Meter saltMeter = new Meter(100, 100, 20, 50, 30, #00B5FA);
-Meter waterMeter = new Meter(100, 100, 20, 90, 30, #E2FAD9);
+Meter saltMeter = new Meter(100, 100, 20, 50, 30, #E2FAD9);
+Meter waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
 
 void setup(){
   size(700,800);
@@ -79,6 +79,14 @@ void draw(){
   //メーターの描画
   waterMeter.display();
   saltMeter.display();
+  
+  // 
+  String strwater= String.valueOf((int)waterMeter.val);
+  String strsalt= String.valueOf((int)saltMeter.val);
+  fill(#000000);
+  textSize(25);
+  text("salt:" + strsalt, 230,70);
+  text("water:" + strwater, 230, 120);
   
   //所持アイテムの表示
   //waterStock.display();
