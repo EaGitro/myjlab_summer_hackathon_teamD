@@ -1,5 +1,4 @@
 
-
 class ItemStock{
 String  name;
 float water, salt;

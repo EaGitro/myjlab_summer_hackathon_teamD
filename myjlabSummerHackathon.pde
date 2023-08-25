@@ -8,7 +8,7 @@ import ddf.minim.ugens.*;
 boolean right, left, waiting, dead;
 int time;
 float v;
-PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
+PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed, sunlight, lie;
 ItemStock waterStock, pocaliStock, saltStock;
 Player player;
 
@@ -22,13 +22,12 @@ final float PLAYER_MOVEMENT_AMOUNT_FAST = 7.5; // player.move() in player.pde
 final float PLAYER_MOVEMENT_AMOUNT_SLOW = 4.5; // player.move() in player.pde 
 
 
-
-
-
-
 // メーターのインスタンス
 Meter saltMeter = new Meter(100, 100, 20, 50, 30, #E2FAD9);
 Meter waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
+
+//スタッキングリスト
+StockingList stockingList = new StockingList(6);
 
 void setup(){
   size(800,850);
@@ -58,10 +57,13 @@ void setup(){
   pocali = loadImage(sketchPath("image/pocali.png"));
   saltPic = loadImage(sketchPath("image/salt.png"));
   
-  //プレーヤー
+  //プレーヤー画像
   player1 = loadImage(sketchPath("image/player1.png"));
   player2 = loadImage(sketchPath("image/player2.png"));
   
+  //ゲームオーバー画像
+  sunlight = loadImage(sketchPath("image/sunlight.jpg"));
+  lie = loadImage(sketchPath("image/lie.png"));
   
   //プレーヤーインスタンス
   player = new Player(400, 700, 50, player1);
@@ -128,4 +130,7 @@ void gameScreen(){
   //saltStock.display();
   
   stockingList.displayStockingItems();
+  
+  textSize(50);
+  text(String.valueOf((int)time/10), 730,50);
 }
