@@ -1,3 +1,4 @@
+
 class StockingList {
     ArrayList<String> arr = new ArrayList<>();
     int maxNum;
@@ -49,5 +50,3 @@ class StockingList {
       print("\n");
     }
 }
-
-StockingList stockingList = new StockingList(6);

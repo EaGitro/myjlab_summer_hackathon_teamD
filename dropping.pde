@@ -1,6 +1,4 @@
 
-
-
 ArrayList<Dropping> dropping = new ArrayList<Dropping>();
 
 class Dropping{
