@@ -15,17 +15,20 @@ PImage picPath;
  }
  void increase(){
    this.quantity += 1;
+   //println(this.name + " :" + this.quantity);
  }
 
  void discrease(){
    this.quantity += -1;
    waterMeter.change(this.water);
    saltMeter.change(this.salt);
+   stockingList.removeItem(this.name);
+   //println(this.name + " :" + this.quantity);
  }
 
-  void display(){
-   for(int i = 0; i < this.quantity; i ++){
-     image(this.picPath, 450+i*50 ,70,50,50);
-   }
- }
+ // void display(){
+ //  for(int i = 0; i < this.quantity; i ++){
+ //    image(this.picPath, 20+i*20 ,0,40,40);
+ //  }
+ //}
 }
