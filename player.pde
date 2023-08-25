@@ -77,6 +77,9 @@ void keyPressed(){
   if(keyCode==32){
     waiting = false;
   }
+  if(keyCode==82){
+    init();
+  }
 }
 
 //キーボードが離れた時呼び出される:矢印キーそれぞれ押されていたらfalse
