@@ -7,6 +7,8 @@ void collisionDetect(){
         //即時関数
         saltMeter.change(dropping.get(i).salt);
         waterMeter.change(dropping.get(i).water);
+        dropping.get(i).sound.play();
+        dropping.get(i).sound.rewind();
         dropping.remove(i);
       }else{
         

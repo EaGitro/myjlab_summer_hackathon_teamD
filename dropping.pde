@@ -6,9 +6,10 @@ class Dropping{
   String name;
   boolean isSokuji;
   PImage picture;
+  AudioPlayer sound;
 
   
-  Dropping(String name, boolean isSokuji,float water, float salt, float x, float y, float velocity, PImage picture
+  Dropping(String name, boolean isSokuji,float water, float salt, float x, float y, float velocity, PImage picture, AudioPlayer sound
   ){
     this.name = name;
     this.isSokuji = isSokuji;
@@ -19,6 +20,7 @@ class Dropping{
     this.water = water;
     this.salt = salt;
     this.picture = picture;
+    this.sound = sound;
   }
   
   void display(){
@@ -50,14 +52,14 @@ void geneDropping(){
     if(time%120 == 0){
       dropping.add(new Dropping(
       droppingItems.get(x).name, droppingItems.get(x).isSokuji, droppingItems.get(x).water,
-      droppingItems.get(x).salt,random(30,680),-15,v, droppingItems.get(x).picture
+      droppingItems.get(x).salt,random(30,680),-15,v, droppingItems.get(x).picture, droppingItems.get(x).sound
       ));
       //print("work");
     }
     if(time%600 == 0){
       dropping.add(new Dropping(
       droppingItems.get(y).name, droppingItems.get(y).isSokuji, droppingItems.get(y).water,
-      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture
+      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture, droppingItems.get(x).sound
       ));
     }
   }else{
@@ -65,14 +67,14 @@ void geneDropping(){
       dropping.add(new Dropping(
       //nameImmed[x][0],nameImmed[x][1],nameImmed[x][2], true, random(30,680),-15,random(1,6)
       droppingItems.get(x).name, droppingItems.get(x).isSokuji, droppingItems.get(x).water,
-      droppingItems.get(x).salt,random(30,680),-15,v +3, droppingItems.get(x).picture
+      droppingItems.get(x).salt,random(30,680),-15,v +3, droppingItems.get(x).picture, droppingItems.get(x).sound
       ));
       //print("work");
     }
     if(time%600 == 0){
       dropping.add(new Dropping(
       droppingItems.get(y).name, droppingItems.get(y).isSokuji, droppingItems.get(y).water,
-      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture
+      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture, droppingItems.get(x).sound
       ));
     }
     
