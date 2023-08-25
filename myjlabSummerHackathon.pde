@@ -5,8 +5,12 @@ PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, sa
 ItemStock waterStock, pocaliStock, saltStock;
 Player player;
 
-float waterAmountDecrease = -0.05 // waterMeter.change() in  myjlabSummerHackathon.pde
-float saltAmountDecrease = -0.2 //   saltMeter.change() in player.pde, keyPressed() 
+final float WATER_AMOUNT_DECREASE = -0.08; // waterMeter.change() in myjlabSummerHackathon.pde
+final float SALT_AMOUNT_DECREASE = -0.1;  // saltMeter.change() in player.pde, keyPressed() 
+
+final float PLAYER_MOVEMENT_AMOUNT_FAST = 7.5; // player.move() in player.pde 
+final float PLAYER_MOVEMENT_AMOUNT_SLOW = 4.5; // player.move() in player.pde 
+
 
 
 
@@ -65,7 +69,7 @@ void draw(){
   time += 3;
   background(0);
   // decrease salt by time 
-  waterMeter.change(waterAmountDecrease);
+  waterMeter.change(WATER_AMOUNT_DECREASE);
   
   
   
