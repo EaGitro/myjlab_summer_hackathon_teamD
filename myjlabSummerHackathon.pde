@@ -23,8 +23,8 @@ final float PLAYER_MOVEMENT_AMOUNT_SLOW = 4.5; // player.move() in player.pde
 
 
 // メーターのインスタンス
-Meter saltMeter = new Meter(100, 100, 20, 50, 30, #E2FAD9);
-Meter waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
+Meter saltMeter;
+Meter waterMeter;
 
 //スタッキングリスト
 StockingList stockingList = new StockingList(6);
@@ -41,6 +41,9 @@ void setup(){
   
   minim = new Minim(this);
   //player = minim.loadFile("./sound/punch.mp3");
+  
+  saltMeter = new Meter(100, 100, 20, 50, 30, #E2FAD9);
+  waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
 
   
   
@@ -81,17 +84,48 @@ void setup(){
   pocaliStock = new ItemStock(droppingItems.get(5).name, droppingItems.get(5).water, droppingItems.get(5).salt, 0, pocali);
   saltStock = new ItemStock(droppingItems.get(6).name, droppingItems.get(6).water, droppingItems.get(6).salt,0, saltPic);
   
-  
-  
-  
 }
+
+//初期化関数
+void init(){
+  time = 0;
+  dead = false;
+  
+  dropping.clear();
+  //for(int i =0;i <= dropping.size(); i ++){
+  //  dropping.remove(0);
+  //}
+  stockingList.arr.clear();
+  
+  //プレーヤーのインスタンス
+  player = new Player(400, 700, 50, player1);
+  
+  //メーターのインスタンス
+  saltMeter = new Meter(100, 100, 20, 50, 30, #E2FAD9);
+  waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
+  
+  //落下物のインスタンス
+  droppingItems.add(new DroppingItem("sun1", true, -30, -20, sun1));
+  droppingItems.add(new DroppingItem("sun2", true, -30, -20, sun2));
+  droppingItems.add(new DroppingItem("chiliPeper", true, -20, 0, chiliPepper));
+  droppingItems.add(new DroppingItem("bed", true, 40, 40, bed));
+  droppingItems.add(new DroppingItem("water",false, 20, 0, waterPic));
+  droppingItems.add(new DroppingItem("pocali", false, 10, 10, pocali));
+  droppingItems.add(new DroppingItem("salt", false, 0, 20, saltPic));
+  
+  //アイテムストックのインスタンス
+  waterStock = new ItemStock(droppingItems.get(4).name, droppingItems.get(4).water, droppingItems.get(4).salt,0, waterPic);
+  pocaliStock = new ItemStock(droppingItems.get(5).name, droppingItems.get(5).water, droppingItems.get(5).salt, 0, pocali);
+  saltStock = new ItemStock(droppingItems.get(6).name, droppingItems.get(6).water, droppingItems.get(6).salt,0, saltPic);
+}
+
+
 
 void draw(){
   waiting();
-
-  
 }
 
+//ゲームの画面
 void gameScreen(){
   time += 3;
   background(0);
