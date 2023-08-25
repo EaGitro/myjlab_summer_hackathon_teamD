@@ -1,7 +1,7 @@
 
 void collisionDetect(){
   for(int i=0; i<dropping.size(); i++){
-    if(abs(dropping.get(i).x-player.x)<97.5 && abs(dropping.get(i).y-player.y)<60){
+    if(abs(dropping.get(i).x-player.x)<70 && abs(dropping.get(i).y-player.y)<60){
       
       if(dropping.get(i).isSokuji){
         //即時関数

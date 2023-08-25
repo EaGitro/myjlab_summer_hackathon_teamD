@@ -24,8 +24,8 @@ class Meter {
             
         } else if (this.val <=  0) {
             this.val = 0;
-            
-            gameOver();
+           
+            dead = true;
         }
         
     }
@@ -41,8 +41,4 @@ class Meter {
     }
     
     
-}
-
-void gameOver() {
-    println("gameover");
 }

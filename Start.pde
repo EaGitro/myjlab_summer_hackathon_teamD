@@ -1,14 +1,12 @@
-
-String scene = "start";
- 
-  
-  void StartScene(){
-    fill(#000000);
+void waiting(){
+  if(waiting){
+    background(0);
+    fill(#00ff00);
     textSize(50);
-    text("Start!!", CENTER, CENTER); 
+    text("Start!!", 250, 40); 
     
-    fill(#000000);
-    textSize(50);
+    fill(#00ff00);
+    textSize(30);
     text("-ルール説明-"+ "\n"+ 
     "落ちてくるアイテムに気をつけながら走りましょう!"+ "\n"+ 
     "太陽と唐辛子に当たると水分と塩分が減っていきます"+ "\n"+ 
@@ -18,7 +16,12 @@ String scene = "start";
     "水とポカリと塩は保持することができます"+ "\n"+
     "水はＦキー、ポカリはＤキー、塩はＳキーで使用できます"+ "\n"+
     "熱中症にならずに走り切りましょう!!!", 600, 600); 
-    
+  }else if(dead){
+    background(0);
+    fill(#00ff00);
+    textSize(50);
+    text("GameOver!!", CENTER, CENTER);
+  }else{
+    gameScreen();
   }
-  
-  
+}

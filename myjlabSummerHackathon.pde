@@ -1,5 +1,5 @@
 
-boolean right, left;
+boolean right, left, waiting, dead;
 int time;
 float v;
 PImage beachImg, pocali, player1, player2, sun1, sun2, waterPic, chiliPepper, saltPic, bed;
@@ -25,6 +25,9 @@ void setup(){
   size(800,850);
   frameRate(200);
   print(frameRate);
+  
+  dead = false;
+  waiting = true;
   
   
   
@@ -67,16 +70,19 @@ void setup(){
 }
 
 void draw(){
+  waiting();
+
+  
+}
+
+void gameScreen(){
   time += 3;
   background(0);
   // decrease salt by time 
   waterMeter.change(WATER_AMOUNT_DECREASE);
   
-  
-  
   //背景
   image(beachImg,0,0,width,height);
-  
   
   //落下物の生成、動き
   geneDropping();
@@ -106,7 +112,5 @@ void draw(){
   //pocaliStock.display();
   //saltStock.display();
   
-  
   stockingList.displayStockingItems();
-  
 }

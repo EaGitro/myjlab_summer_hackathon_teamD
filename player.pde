@@ -74,6 +74,9 @@ void keyPressed(){
   if(keyCode==83 && saltStock.quantity >0){
     saltStock.discrease();
   }
+  if(keyCode==32){
+    waiting = false;
+  }
 }
 
 //キーボードが離れた時呼び出される:矢印キーそれぞれ押されていたらfalse
