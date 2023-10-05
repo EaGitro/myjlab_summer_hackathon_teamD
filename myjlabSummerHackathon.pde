@@ -1,9 +1,4 @@
 import ddf.minim.*;
-import ddf.minim.analysis.*;
-import ddf.minim.effects.*;
-import ddf.minim.signals.*;
-import ddf.minim.spi.*;
-import ddf.minim.ugens.*;
 
 boolean right, left, waiting, dead;
 int time;
@@ -13,7 +8,7 @@ ItemStock waterStock, pocaliStock, saltStock;
 Player player;
 
 Minim minim;
-ddf.minim.AudioPlayer soundPlayer;
+AudioPlayer punch, restore, getitem, restore2, Martian_Vassals;
 
 final float WATER_AMOUNT_DECREASE = -0.04; // waterMeter.change() in myjlabSummerHackathon.pde
 final float SALT_AMOUNT_DECREASE = -0.1;  // saltMeter.change() in player.pde, keyPressed() 
@@ -39,8 +34,14 @@ void setup(){
   dead = false;
   waiting = true;
   
+  //効果音ども
   minim = new Minim(this);
-  //player = minim.loadFile("./sound/punch.mp3");
+  punch = minim.loadFile("sound/punch.mp3");
+  restore = minim.loadFile("sound/restore.mp3");
+  getitem = minim.loadFile("sound/get.mp3");
+  restore2 = minim.loadFile("sound/restore2.mp3");
+  //BGM
+  Martian_Vassals = minim.loadFile("sound/Martian_Vassals.mp3");
   
   saltMeter = new Meter(100, 100, 20, 50, 30, #E2FAD9);
   waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
@@ -71,13 +72,13 @@ void setup(){
   //プレーヤーインスタンス
   player = new Player(400, 700, 50, player1);
 
-  droppingItems.add(new DroppingItem("sun1", true, -30, -20, sun1));
-  droppingItems.add(new DroppingItem("sun2", true, -30, -20, sun2));
-  droppingItems.add(new DroppingItem("chiliPeper", true, -20, 0, chiliPepper));
-  droppingItems.add(new DroppingItem("bed", true, 40, 40, bed));
-  droppingItems.add(new DroppingItem("water",false, 20, 0, waterPic));
-  droppingItems.add(new DroppingItem("pocali", false, 10, 10, pocali));
-  droppingItems.add(new DroppingItem("salt", false, 0, 20, saltPic));
+  droppingItems.add(new DroppingItem("sun1", true, -30, -20, sun1, punch));
+  droppingItems.add(new DroppingItem("sun2", true, -30, -20, sun2, punch));
+  droppingItems.add(new DroppingItem("chiliPeper", true, -20, 0, chiliPepper, punch));
+  droppingItems.add(new DroppingItem("bed", true, 40, 40, bed, restore));
+  droppingItems.add(new DroppingItem("water",false, 20, 0, waterPic, restore));
+  droppingItems.add(new DroppingItem("pocali", false, 10, 10, pocali, restore));
+  droppingItems.add(new DroppingItem("salt", false, 0, 20, saltPic, restore));
   
   //アイテムストックのインスタンス
   waterStock = new ItemStock(droppingItems.get(4).name, droppingItems.get(4).water, droppingItems.get(4).salt,0, waterPic);
@@ -105,13 +106,13 @@ void init(){
   waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
   
   //落下物のインスタンス
-  droppingItems.add(new DroppingItem("sun1", true, -30, -20, sun1));
-  droppingItems.add(new DroppingItem("sun2", true, -30, -20, sun2));
-  droppingItems.add(new DroppingItem("chiliPeper", true, -20, 0, chiliPepper));
-  droppingItems.add(new DroppingItem("bed", true, 40, 40, bed));
-  droppingItems.add(new DroppingItem("water",false, 20, 0, waterPic));
-  droppingItems.add(new DroppingItem("pocali", false, 10, 10, pocali));
-  droppingItems.add(new DroppingItem("salt", false, 0, 20, saltPic));
+  droppingItems.add(new DroppingItem("sun1", true, -30, -20, sun1, punch));
+  droppingItems.add(new DroppingItem("sun2", true, -30, -20, sun2, punch));
+  droppingItems.add(new DroppingItem("chiliPeper", true, -20, 0, chiliPepper, punch));
+  droppingItems.add(new DroppingItem("bed", true, 40, 40, bed, restore));
+  droppingItems.add(new DroppingItem("water",false, 20, 0, waterPic, restore));
+  droppingItems.add(new DroppingItem("pocali", false, 10, 10, pocali, restore));
+  droppingItems.add(new DroppingItem("salt", false, 0, 20, saltPic, restore));
   
   //アイテムストックのインスタンス
   waterStock = new ItemStock(droppingItems.get(4).name, droppingItems.get(4).water, droppingItems.get(4).salt,0, waterPic);
@@ -127,6 +128,9 @@ void draw(){
 
 //ゲームの画面
 void gameScreen(){
+  Martian_Vassals.play();
+  print(time);
+  print();
   time += 3;
   background(0);
   // decrease salt by time 
