@@ -8,7 +8,7 @@ ItemStock waterStock, pocaliStock, saltStock;
 Player player;
 
 Minim minim;
-AudioPlayer punch, restore;
+AudioPlayer punch, restore, getitem, restore2, Martian_Vassals;
 
 final float WATER_AMOUNT_DECREASE = -0.04; // waterMeter.change() in myjlabSummerHackathon.pde
 final float SALT_AMOUNT_DECREASE = -0.1;  // saltMeter.change() in player.pde, keyPressed() 
@@ -34,9 +34,14 @@ void setup(){
   dead = false;
   waiting = true;
   
+  //効果音ども
   minim = new Minim(this);
   punch = minim.loadFile("sound/punch.mp3");
   restore = minim.loadFile("sound/restore.mp3");
+  getitem = minim.loadFile("sound/get.mp3");
+  restore2 = minim.loadFile("sound/restore2.mp3");
+  //BGM
+  Martian_Vassals = minim.loadFile("sound/Martian_Vassals.mp3");
   
   saltMeter = new Meter(100, 100, 20, 50, 30, #E2FAD9);
   waterMeter = new Meter(100, 100, 20, 90, 30, #00B5FA);
@@ -123,6 +128,9 @@ void draw(){
 
 //ゲームの画面
 void gameScreen(){
+  Martian_Vassals.play();
+  print(time);
+  print();
   time += 3;
   background(0);
   // decrease salt by time 

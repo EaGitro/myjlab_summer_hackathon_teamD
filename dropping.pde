@@ -44,10 +44,10 @@ void geneDropping(){
   if(x==3){
     v = 15;
   }else{
-    v = random(3,8);
+    v = random(5,13);
   }
   
-  if(180<time && time<1800){
+  if(180<time && time<1500){
     
     if(time%120 == 0){
       dropping.add(new Dropping(
@@ -59,10 +59,10 @@ void geneDropping(){
     if(time%600 == 0){
       dropping.add(new Dropping(
       droppingItems.get(y).name, droppingItems.get(y).isSokuji, droppingItems.get(y).water,
-      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture, droppingItems.get(x).sound
+      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture, droppingItems.get(y).sound
       ));
     }
-  }else{
+  }else if(1500<time && time<2400){
     if(time%60 == 0){
       dropping.add(new Dropping(
       //nameImmed[x][0],nameImmed[x][1],nameImmed[x][2], true, random(30,680),-15,random(1,6)
@@ -71,13 +71,35 @@ void geneDropping(){
       ));
       //print("work");
     }
-    if(time%600 == 0){
+    if(time%400 == 0){
       dropping.add(new Dropping(
       droppingItems.get(y).name, droppingItems.get(y).isSokuji, droppingItems.get(y).water,
-      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture, droppingItems.get(x).sound
+      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture, droppingItems.get(y).sound
       ));
     }
-    
+  }else{
+    x = floor(random(1,13))%7;
+    if(x==0){
+      v = 15;
+      x = 3;
+    }else{
+      v = random(5,13);
+      x = x%3;
+    }
+    if(time%30 == 0){
+      dropping.add(new Dropping(
+      //nameImmed[x][0],nameImmed[x][1],nameImmed[x][2], true, random(30,680),-15,random(1,6)
+      droppingItems.get(x).name, droppingItems.get(x).isSokuji, droppingItems.get(x).water,
+      droppingItems.get(x).salt,random(30,680),-15,v +5, droppingItems.get(x).picture, droppingItems.get(x).sound
+      ));
+      //print("work");
+    }
+    if(time%100 == 0){
+      dropping.add(new Dropping(
+      droppingItems.get(y).name, droppingItems.get(y).isSokuji, droppingItems.get(y).water,
+      droppingItems.get(y).salt,random(30,680),-15,v, droppingItems.get(y).picture, droppingItems.get(y).sound
+      ));
+    }
   }
   
 }
